@@ -1,0 +1,37 @@
+:root {
+  --naranja-marca: #F3A022; /* El naranja/mostaza de los botones y logo */
+  --texto-principal: #1A1A1A; /* Negro suave para títulos */
+  --texto-secundario: #6B7280; /* Gris para textos de apoyo */
+  --fondo-crema: #EBEAE4; /* El gris/crema del fondo de la sección superior */
+  --blanco: #FFFFFF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--texto-principal);
+  background-color: var(--fondo-crema); /* Fondo inicial */
+}
+
+.main-container {
+  margin: 0 auto; /* Esto centra el contenedor en la pantalla */
+  padding: 0 40px; /* ¡Acá está el padding lateral que pedías! */
+
+}
+
+.html {
+  scroll-behavior: smooth;
+}
+
+
+/* Un ajustecito para celulares: menos padding en pantallas chicas */
+@media (max-width: 768px) {
+  .main-container {
+    padding: 0 20px;
+  }
+}

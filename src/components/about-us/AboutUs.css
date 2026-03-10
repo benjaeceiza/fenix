@@ -1,0 +1,178 @@
+/* =========================================
+   ABOUT US SECTION (Features)
+   ========================================= */
+
+#nosotros {
+    /* Ajustá los px según la altura de tu header */
+    scroll-margin-top: 100px;
+}
+
+.about-section {
+    padding: 100px 0;
+    /* Buen espacio para respirar respecto al hero */
+    padding: 20px;
+    background-color: white;
+    margin-top: 40px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.24);
+    border-radius: 20px;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+/* --- Columna Izquierda --- */
+.about-left {
+    flex: 1;
+    max-width: 450px;
+}
+
+.about-title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 800;
+    color: var(--texto-principal);
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.about-highlight {
+    color: var(--texto-principal);
+    /* Opcional: podes ponerlo naranja con var(--naranja-marca) */
+    font-weight: 400;
+    /* Para darle el contraste de grosor como en la imagen */
+}
+
+.about-description {
+    color: var(--texto-secundario);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* Estadísticas debajo del texto */
+.about-stats {
+    display: flex;
+    gap: 30px;
+}
+
+.about-stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-stat-number {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--texto-principal);
+}
+
+.about-stat-label {
+    font-size: 0.85rem;
+    color: var(--texto-secundario);
+    margin-top: 5px;
+}
+
+/* --- Separador Vertical (como en la imagen original) --- */
+.about-divider {
+    width: 2px;
+    height: 200px;
+    background-color: #F3F4F6;
+    /* Un gris super clarito */
+    margin: 0 20px;
+}
+
+/* --- Columna Derecha: Tarjetas --- */
+.about-right {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.about-feature-card {
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    border: 1px solid #F3F4F6;
+    border-radius: 20px;
+    background-color: var(--blanco);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    gap: 20px;
+}
+
+.about-feature-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-color: #E5E7EB;
+}
+
+/* El circulito naranja del icono */
+.about-icon-wrapper {
+    background-color: rgba(243, 160, 34, 0.15);
+    /* Naranja con transparencia */
+    color: var(--naranja-marca);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.about-feature-text {
+    flex: 1;
+}
+
+.about-feature-text h3 {
+    font-size: 1.1rem;
+    color: var(--texto-principal);
+    margin-bottom: 5px;
+}
+
+.about-feature-text p {
+    font-size: 0.9rem;
+    color: var(--texto-secundario);
+    line-height: 1.4;
+}
+
+/* Flechita de la derecha */
+.about-arrow-btn {
+    background: none;
+    border: none;
+    color: #D1D5DB;
+    /* Gris clarito */
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.about-feature-card:hover .about-arrow-btn {
+    color: var(--naranja-marca);
+    transform: translateX(5px);
+    /* Se mueve un poquito al hacer hover */
+}
+
+
+/* --- Responsive para celulares --- */
+@media (max-width: 900px) {
+    .about-container {
+        flex-direction: column;
+    }
+
+    .about-divider {
+        display: none;
+        /* Ocultamos la línea vertical en móviles */
+    }
+
+    .about-title {
+        font-size: 2.8rem;
+    }
+
+    .about-stats {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}

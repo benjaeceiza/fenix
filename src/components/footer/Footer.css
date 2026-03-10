@@ -1,0 +1,199 @@
+.footer-crema {
+  background-color: var(--fondo-crema); /* Fondo cremita igual al Hero */
+  color: var(--texto-principal);
+  padding-top: 80px;
+  border-top: 1px solid rgba(0,0,0,0.05); /* Línea sutil de separación */
+  margin-top: 30px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+  gap: 50px;
+  padding-bottom: 60px;
+}
+
+/* --- Marca y Socials --- */
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: var(--texto-principal);
+}
+
+.footer-logo-accent {
+  color: var(--naranja-marca); /* Naranja Fénix */
+}
+
+.footer-description {
+  color: var(--texto-secundario);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-socials a {
+  width: 40px;
+  height: 40px;
+  background-color: var(--blanco);
+  color: var(--texto-principal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.footer-socials a:hover {
+  background-color: var(--naranja-marca);
+  color: var(--blanco);
+  transform: translateY(-3px);
+}
+
+/* --- Títulos y Links --- */
+.footer-crema h4 {
+  font-size: 1.1rem;
+  color: var(--texto-principal);
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-crema h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 30px;
+  height: 2px;
+  background-color: var(--naranja-marca);
+}
+
+.footer-crema ul {
+  list-style: none;
+}
+
+.footer-crema ul li {
+  margin-bottom: 12px;
+}
+
+.footer-crema ul li a {
+  color: var(--texto-secundario);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.footer-crema ul li a:hover {
+  color: var(--naranja-marca);
+}
+
+/* --- Ubicación --- */
+.footer-address {
+  color: var(--texto-secundario);
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Da un poco más de aire entre el teléfono y el mail */
+}
+
+.footer-contact-link {
+  display: flex;
+  align-items: center; /* Centra el ícono con el texto verticalmente */
+  gap: 10px; /* Espacio entre el ícono y el texto */
+  color: var(--texto-secundario);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-contact-link:hover {
+  color: var(--naranja-marca);
+
+}
+
+.footer-contact-icon {
+  font-size: 1.2rem;
+  color: var(--naranja-marca); /* El ícono siempre naranja para que llame la atención */
+  flex-shrink: 0; /* Evita que el ícono se achique si el mail es muy largo en celulares */
+}
+
+.footer-icon-map {
+  color: var(--naranja-marca);
+  margin-top: 5px;
+}
+
+.footer-map-placeholder {
+  background-color: var(--naranja-marca);
+  height: 150px;
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--texto-secundario);
+  font-size: 0.85rem;
+  cursor: pointer;
+  border: 2px solid rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s;
+  color: rgb(255, 255, 255);
+}
+
+.footer-map-placeholder:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* --- Copyright Bottom --- */
+.footer-bottom {
+  border-top: 1px solid rgba(0,0,0,0.05);
+  padding: 25px 0;
+}
+
+.footer-bottom-content {
+  display: flex;
+  justify-content: space-between;
+  color: var(--texto-secundario);
+  font-size: 0.85rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .footer-socials { justify-content: center; }
+  .footer-crema h4::after { left: 50%; transform: translateX(-50%); }
+  .footer-bottom-content { flex-direction: column; gap: 10px; text-align: center; }
+  .footer-address { justify-content: center; }
+  .footer-contact-link{
+
+    justify-content: center;
+   
+  }
+
+  .footer-map-placeholder{
+    margin: auto;
+  }
+}

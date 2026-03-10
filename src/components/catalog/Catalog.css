@@ -1,0 +1,131 @@
+/* =========================================
+   CATALOG SECTION
+   ========================================= */
+
+#catalogo {
+    /* Ajustá los px según la altura de tu header */
+    scroll-margin-top: 100px;
+}
+
+.catalog-section {
+    padding: 100px 0;
+    background-color: var(--fondo-crema);
+    /* Mantenemos la estética inicial */
+    overflow: hidden;
+    padding: 20px;
+    background-color: #f3a022;
+    margin-top: 40px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.24);
+    border-radius: 20px;
+}
+
+.catalog-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+/* --- Texto del Catálogo --- */
+.catalog-content {
+    flex: 1;
+    z-index: 2;
+}
+
+.catalog-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--texto-principal);
+    margin-bottom: 25px;
+}
+
+.catalog-highlight {
+    color: white;
+    /* El naranja de Fénix Propiedades */
+}
+
+.catalog-description {
+    font-size: 1.1rem;
+    color: var(--texto-secundario);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 500px;
+}
+
+/* --- Botón y Acciones --- */
+.catalog-btn-main {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: white;
+    color: #f3a022;
+    padding: 18px 35px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.catalog-btn-main:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.4);
+}
+
+.catalog-note {
+    display: block;
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: var(--texto-secundario);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* --- Visual / Imagen --- */
+.catalog-visual {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.catalog-circle-bg {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.catalog-img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    /* Podés usar un mockup de un celular con el catálogo abierto */
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));
+
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .catalog-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .catalog-description {
+        margin: 0 auto 40px auto;
+    }
+
+    .catalog-circle-bg {
+        width: 300px;
+        height: 300px;
+    }
+}

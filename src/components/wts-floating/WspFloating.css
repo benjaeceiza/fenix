@@ -1,0 +1,76 @@
+.wsp-floating-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 65px;
+  height: 65px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  text-decoration: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  
+  /* Animación de entrada */
+  animation: slideInUp 0.5s ease-out;
+}
+
+.wsp-floating-btn:hover {
+  transform: scale(1.1);
+  background-color: #128c7e;
+}
+
+/* Tooltip (el mensajito que aparece al lado) */
+.wsp-tooltip {
+  position: absolute;
+  right: 80px;
+  background-color: white;
+  color: #444;
+  padding: 8px 15px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.wsp-floating-btn:hover .wsp-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Animación de pulso suave */
+@keyframes wspPulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.wsp-floating-btn {
+  animation: slideInUp 0.5s ease-out, wspPulse 2s infinite;
+}
+
+@keyframes slideInUp {
+  from { transform: translateY(100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Ajuste para celulares para que no tape contenido importante */
+@media (max-width: 768px) {
+  .wsp-floating-btn {
+    width: 55px;
+    height: 55px;
+    bottom: 20px;
+    right: 20px;
+  }
+  .wsp-tooltip {
+    display: none; /* En celular mejor ocultar el texto para que no estorbe */
+  }
+}

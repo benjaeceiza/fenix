@@ -1,0 +1,197 @@
+/* =========================================
+   HEADER PRINCIPAL (Desktop y base)
+   ========================================= */
+.header-fixed {
+  position: sticky; /* Se queda pegado arriba */
+  top: 0;
+  z-index: 100;
+  background-color: var(--fondo-crema); /* Usa el mismo fondo que la sección superior */
+  padding: 15px 40px; /* Alineado con el main-container que hicimos antes */
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Logo --- */
+.header-logo {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--texto-principal);
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: flex-end;
+}
+
+
+.header-logo-img{
+  width: 60px;
+  margin-right: 10px;
+}
+.header-logo-accent {
+  color: var(--naranja-marca);
+}
+
+/* --- Navegación de Escritorio --- */
+.header-nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.header-nav-desktop a {
+  text-decoration: none;
+  color: var(--texto-principal);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.header-nav-desktop a:hover {
+  color: var(--naranja-marca);
+}
+
+/* Botón Catálogo WhatsApp (Escritorio) */
+.header-btn-catalogo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--naranja-marca);
+  color: var(--blanco) !important;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.header-btn-catalogo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(243, 160, 34, 0.4);
+}
+
+/* Botón de Menú Móvil (Oculto por defecto en escritorio) */
+.header-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--texto-principal);
+  cursor: pointer;
+}
+
+
+/* =========================================
+   SIDEBAR (Móviles)
+   ========================================= */
+.header-sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%; /* Oculto a la derecha de la pantalla */
+  width: 280px;
+  height: 100vh;
+  background-color: var(--blanco);
+  box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+  z-index: 200;
+  transition: right 0.3s ease-in-out; /* Animación suave al abrir */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Clase que se agrega cuando el menú se abre */
+.header-sidebar-open {
+  right: 0;
+}
+
+.header-sidebar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.header-close-btn {
+  background: none;
+  border: none;
+  color: var(--texto-secundario);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.header-close-btn:hover {
+  color: var(--naranja-marca);
+}
+
+/* Links dentro del Sidebar */
+.header-nav-mobile {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  gap: 25px;
+}
+
+.header-nav-mobile a {
+  text-decoration: none;
+  color: var(--texto-principal);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Botón Catálogo WhatsApp (Móvil) */
+.header-btn-catalogo-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--naranja-marca);
+  color: var(--blanco) !important;
+  padding: 15px;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+/* Fondo oscuro detrás del sidebar (Overlay) */
+.header-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 150;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.header-overlay-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* =========================================
+   MEDIA QUERIES (Adaptación a Celulares)
+   ========================================= */
+@media (max-width: 900px) {
+  /* Ocultamos los links normales */
+  .header-nav-desktop {
+    display: none;
+  }
+  
+  /* Mostramos el botón hamburguesa */
+  .header-mobile-toggle {
+    display: flex;
+  }
+
+  /* Reducimos el padding en celulares para que no ocupe tanto */
+  .header-fixed {
+    padding: 15px 20px;
+  }
+}

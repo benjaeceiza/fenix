@@ -1,0 +1,120 @@
+/* =========================================
+   SERVICES SECTION
+   ========================================= */
+
+#servicios {
+  /* Ajustá los px según la altura de tu header */
+  scroll-margin-top: 100px;
+}
+
+.services-section {
+  /* Usamos un fondo apenas gris/crema para separarlo visualmente del blanco anterior */
+  background-color: #F9F9F8;
+  padding: 100px 0;
+  padding: 20px;
+  background-color: white;
+  margin-top: 40px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.24);
+  border-radius: 20px;
+}
+
+.services-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 60px auto;
+}
+
+.services-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: var(--texto-principal);
+  margin-bottom: 15px;
+  letter-spacing: -1px;
+}
+
+.services-highlight {
+  color: var(--naranja-marca);
+}
+
+.services-subtitle {
+  font-size: 1.1rem;
+  color: var(--texto-secundario);
+  line-height: 1.6;
+}
+
+/* --- Grilla de Servicios --- */
+.services-grid {
+  display: grid;
+  /* Esto crea columnas que se adaptan solas. Mínimo de 300px, si hay más espacio, crecen */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  /* Centramos la grilla para cuando queden elementos impares (tenemos 5 servicios) */
+  justify-content: center;
+}
+
+/* --- Tarjetas Individuales --- */
+.services-card {
+  background-color: var(--blanco);
+  padding: 40px 30px;
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.services-card:hover {
+  transform: translateY(-8px);
+  /* Efecto de que se levanta la tarjeta */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  border-color: rgba(243, 160, 34, 0.2);
+  /* Borde sutil naranja al hacer hover */
+}
+
+.services-icon-wrapper {
+  background-color: var(--fondo-crema);
+  color: var(--naranja-marca);
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+  /* Un poco cuadrado, un poco redondo, re cheto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Efecto para que el ícono se llene de color al pasar el mouse por la tarjeta */
+.services-card:hover .services-icon-wrapper {
+  background-color: var(--naranja-marca);
+  color: var(--blanco);
+}
+
+.services-card-title {
+  font-size: 1.3rem;
+  color: var(--texto-principal);
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.services-card-description {
+  color: var(--texto-secundario);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* --- Responsive para celulares --- */
+@media (max-width: 768px) {
+  .services-title {
+    font-size: 2.5rem;
+  }
+
+  .services-card {
+    padding: 30px 20px;
+    align-items: center;
+    text-align: center;
+  }
+}

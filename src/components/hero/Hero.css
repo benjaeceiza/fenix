@@ -1,0 +1,264 @@
+/* =========================================
+   HERO SECTION
+   ========================================= */
+.hero {
+  padding: 20px;
+  background-color: white;
+  margin-top: 40px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.24);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.hero-background {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #bec0b5;
+  /* Cambiamos a relative para controlar las capas internas */
+  position: relative;
+  padding: 0px 10px ;
+  height: 80vh;
+  background-image: url("/hero-img-2.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+/* --- Columna Izquierda: Textos y Buscador --- */
+.hero-content {
+  width: 100%;
+  /* Aumentamos un poco el ancho */
+  /* Hacemos que se meta debajo de la imagen */
+  margin-right: -15%;
+  /* Importante: Le damos un nivel de apilamiento bajo */
+  z-index: 10;
+  position: relative;
+  padding-left: 50px;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 250px);
+  line-height: 1.1;
+  margin-bottom: 40px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: white;
+  text-shadow: 0px 2px 5px rgb(53, 53, 53);
+  
+  /* El texto queda en el nivel 1, detrás de la imagen que será nivel 5 */
+}
+
+.hero-title .hero-light-text {
+  color: rgb(233, 154, 9);
+  font-weight: 400;
+}
+
+/* El Buscador - Este SÍ tiene que estar adelante de todo */
+.hero-search-box {
+  background: var(--blanco);
+  padding: 15px 20px;
+  border-radius: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  margin-bottom: 40px;
+  margin-left: 5px;
+  margin-right: 5px;
+  max-width: 480px;
+  /* Lo ponemos en una capa muy superior para que tape a la casa */
+  position: relative;
+  z-index: 20;
+}
+
+.hero-search-tabs {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.hero-search-tabs span {
+  cursor: pointer;
+  color: var(--texto-secundario);
+  transition: color 0.2s;
+}
+
+.hero-search-tabs .hero-active {
+  color: var(--texto-principal);
+  border-bottom: 2px solid var(--naranja-marca);
+  padding-bottom: 5px;
+}
+
+.hero-search-input-container {
+  display: flex;
+  background: #F4F4F4;
+  border-radius: 30px;
+  padding: 6px 6px 6px 20px;
+  align-items: center;
+}
+
+.hero-search-input-container input {
+  border: none;
+  background: transparent;
+  outline: none;
+  flex: 1;
+  font-size: 1rem;
+  color: var(--texto-principal);
+}
+
+.hero-btn-search {
+  background: var(--naranja-marca);
+  color: var(--blanco);
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.hero-btn-search:hover {
+  transform: scale(1.05);
+}
+
+.hero-quote {
+  font-style: italic;
+  color: white;
+  border-left: 3px solid var(--naranja-marca);
+  padding-left: 15px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 400px;
+}
+
+
+
+/* Tarjeta flotante superpuesta */
+.hero-property-card {
+  position: absolute;
+  bottom: 0px;
+  /* La movemos más a la derecha para que no la tape el buscador */
+  left: 25%;
+  background: var(--blanco);
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  /* Esta también tiene que estar bien adelante */
+  z-index: 25;
+}
+
+.hero-property-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: var(--texto-principal);
+}
+
+.hero-property-card p {
+  color: var(--texto-secundario);
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.hero-property-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-price-tag {
+  background: var(--fondo-crema);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: var(--texto-principal);
+}
+
+.hero-card-arrows {
+  display: flex;
+  gap: 8px;
+}
+
+.hero-btn-arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid #E5E7EB;
+  background: var(--blanco);
+  color: var(--texto-secundario);
+  transition: all 0.2s;
+}
+
+.hero-btn-arrow:hover {
+  border-color: var(--naranja-marca);
+}
+
+.hero-btn-arrow.hero-next {
+  background: var(--naranja-marca);
+  color: var(--blanco);
+  border: none;
+}
+
+.hero-btn-arrow.hero-next:hover {
+  filter: brightness(1.1);
+}
+
+/* Media Query para celulares: que no se rompa el efecto */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .hero-content{
+    padding-left: 0;
+  }
+
+  
+  .hero-image-container {
+    width: 100%;
+    margin-right: 0;
+    z-index: 1;
+    /* Reseteamos z-index */
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .hero-search-box {
+    margin: 0 auto 40px;
+    /* Centrado */
+  }
+
+  .hero-image-container {
+    order: -1;
+    /* Ponemos la imagen arriba en celulares */
+    margin-bottom: -50px;
+    /* Superposición vertical */
+  }
+
+  .hero-property-card {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -80px;
+    width: 90%;
+  }
+
+  .hero-quote {
+    margin: 0 auto;
+    text-align: left;
+    display: inline-block;
+  }
+}

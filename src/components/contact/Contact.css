@@ -1,0 +1,212 @@
+/* =========================================
+   CONTACT SECTION
+   ========================================= */
+
+#contacto {
+  /* Ajustá los px según la altura de tu header */
+  scroll-margin-top: 100px;
+}
+
+.contact-section {
+  padding: 100px 0;
+  background-color: var(--blanco);
+  /* Fondo blanco para contrastar con el Hero */
+  padding: 20px;
+  background-color: white;
+  margin-top: 40px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.24);
+  border-radius: 20px;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 80px;
+
+}
+
+/* --- Columna Izquierda: Info --- */
+.contact-info {
+  flex: 1;
+  max-width: 500px;
+}
+
+.contact-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 25px;
+  color: var(--texto-principal);
+  letter-spacing: -1px;
+}
+
+.contact-highlight {
+  color: var(--naranja-marca);
+  /* El naranja de Fénix Propiedades */
+}
+
+.contact-subtitle {
+  color: var(--texto-secundario);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 45px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.contact-details:hover {
+  background-color: #e08f1d;
+  transition: all .3s;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.contact-icon {
+  width: 55px;
+  height: 55px;
+  background-color: var(--fondo-crema);
+  color: var(--naranja-marca);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.contact-item h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--texto-principal);
+  margin-bottom: 4px;
+}
+
+.contact-item p {
+  color: var(--texto-secundario);
+  font-size: 0.95rem;
+}
+
+
+.map-link {
+  text-decoration: none;
+
+}
+
+/* --- Columna Derecha: Formulario EmailJS --- */
+.contact-form-container {
+  flex: 1;
+  background-color: var(--fondo-crema);
+  padding: 50px;
+  border-radius: 30px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--texto-principal);
+  padding-left: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 15px;
+  border: 1px solid #E5E7EB;
+  background-color: var(--blanco);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--texto-principal);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--naranja-marca);
+  box-shadow: 0 0 0 4px rgba(243, 160, 34, 0.1);
+}
+
+/* Botón de envío */
+.contact-btn {
+  margin-top: 10px;
+  background-color: var(--naranja-marca);
+  color: var(--blanco);
+  padding: 18px;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+.contact-btn:hover {
+  background-color: #e08f1d;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(243, 160, 34, 0.3);
+}
+
+.contact-btn:active {
+  transform: translateY(0);
+}
+
+/* --- Responsive para móviles --- */
+@media (max-width: 900px) {
+  .contact-section {
+    padding: 70px 0;
+  }
+
+  .contact-container {
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .contact-info {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .contact-title {
+    font-size: 2.8rem;
+  }
+
+  .contact-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .contact-form-container {
+    width: 100%;
+    padding: 30px 20px;
+  }
+}
