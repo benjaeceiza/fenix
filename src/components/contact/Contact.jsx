@@ -1,78 +1,93 @@
-import React, { useRef } from 'react';
+import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { FiMail, FiPhone, FiMapPin, FiSend } from 'react-icons/fi';
+import { FiSend, FiCheckCircle } from 'react-icons/fi';
 import './Contact.css';
 
 const Contact = () => {
   const form = useRef();
+  const [status, setStatus] = useState('idle'); // 'idle', 'sending', 'success', 'error'
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setStatus('sending');
 
-    // Reemplaza estos valores con los de tu cuenta de EmailJS
-    const serviceID = 'YOUR_SERVICE_ID';
-    const templateID = 'YOUR_TEMPLATE_ID';
-    const publicKey = 'YOUR_PUBLIC_KEY';
+    const serviceID = 'service_saiuowe';
+    const templateID = 'template_xu5aa4m'; // El ID que se ve en tu captura
+    const publicKey = 'wQKiSjnmmbuHFTPUf';
 
     emailjs.sendForm(serviceID, templateID, form.current, publicKey)
-      .then((result) => {
-        console.log(result.text);
-        alert("¡Mensaje enviado con éxito a Fénix Propiedades!");
-        e.target.reset(); // Limpia el formulario
-      }, (error) => {
-        console.log(error.text);
-        alert("Hubo un error al enviar el mensaje, intentá de nuevo.");
+      .then(() => {
+        setStatus('success');
+        e.target.reset();
+        
+        // Volver al formulario después de 3 segundos
+        setTimeout(() => {
+          setStatus('idle');
+        }, 3000);
+      })
+      .catch((error) => {
+        console.error(error);
+        setStatus('error');
+        setTimeout(() => setStatus('idle'), 4000);
       });
   };
 
   return (
     <section className="contact-section" id="contacto">
       <div className="main-container contact-container">
-        {/* Información de Contacto (Mantenemos la estética) */}
         <div className="contact-info">
           <h2 className="contact-title">¿Hablamos de tu <br /><span className="contact-highlight">próximo proyecto?</span></h2>
           <p className="contact-subtitle">
             Estamos en Villa Mercedes para asesorarte en la compra, venta o administración de tus propiedades.
           </p>
-
-          <a href="https://maps.app.goo.gl/72ffozSWA7F4VHz96" target='_blank' className='map-link'><div className="contact-details">
-            <div className="contact-item">
-              <div className="contact-icon"><FiMapPin /></div>
-              <div>
-                <h4>Nuestra Oficina</h4>
-                <p>Belgrano 486, Villa Mercedes, San Luis</p>
-              </div>
-            </div>
-
-            {/* ... resto de los items de contacto ... */}
-          </div>
-          </a>
+          {/* ... resto de tu info de contacto ... */}
         </div>
 
-        {/* Formulario Vinculado a EmailJS */}
         <div className="contact-form-container">
-          <form ref={form} onSubmit={sendEmail} className="contact-form">
-            <div className="form-group">
-              <label>Nombre Completo</label>
-              {/* El atributo 'name' debe coincidir con los tags en tu template de EmailJS */}
-              <input type="text" name="user_name" placeholder="Tu nombre" required />
-            </div>
-            <div className="form-group">
-              <label>Email</label>
-              <input type="email" name="user_email" placeholder="email@ejemplo.com" required />
-            </div>
-            <div className="form-group">
-              <label>Mensaje</label>
-              <textarea name="message" placeholder="¿En qué podemos ayudarte?" rows="4" required></textarea>
-            </div>
-            <button type="submit" className="contact-btn">
-              Enviar Mensaje <FiSend />
-            </button>
-          </form>
-        </div>
+          {status === 'idle' || status === 'sending' ? (
+            <form ref={form} onSubmit={sendEmail} className={`contact-form ${status === 'sending' ? 'loading-blur' : ''}`}>
+              <div className="form-group">
+                <label>Nombre Completo</label>
+                <input type="text" name="user_name" placeholder="Tu nombre" required />
+              </div>
+              <div className="form-group">
+                <label>Teléfono</label>
+                <input type="tel" name="user_phone" placeholder="Ej: 2657..." required />
+              </div>
+              <div className="form-group">
+                <label>Email</label>
+                <input type="email" name="user_email" placeholder="email@ejemplo.com" required />
+              </div>
+              <div className="form-group">
+                <label>Mensaje</label>
+                <textarea name="message" placeholder="¿En qué podemos ayudarte?" rows="4" required></textarea>
+              </div>
+              
+              <button type="submit" className="contact-btn" disabled={status === 'sending'}>
+                {status === 'sending' ? 'Enviando...' : <>Enviar Mensaje <FiSend /></>}
+              </button>
 
+              {status === 'sending' && (
+                <div className="loader-overlay">
+                  <div className="spinner"></div>
+                </div>
+              )}
+            </form>
+          ) : status === 'success' ? (
+            <div className="status-message success">
+              <FiCheckCircle className="status-icon" />
+              <h3>¡Mensaje Enviado!</h3>
+              <p>Gracias por contactar a Fénix Propiedades. Te responderemos a la brevedad.</p>
+            </div>
+          ) : (
+            <div className="status-message error">
+              <h3>Ups, algo salió mal</h3>
+              <p>Intentalo de nuevo en unos segundos.</p>
+            </div>
+          )}
+        </div>
       </div>
-    </section >
+    </section>
   );
 };
 

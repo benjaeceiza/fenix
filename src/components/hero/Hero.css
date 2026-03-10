@@ -1,6 +1,43 @@
+/* --- LOADER OVERLAY --- */
+.hero-loader-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--fondo-crema); /* Mismo cremita del formulario */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50; /* Bien arriba para tapar todo mientras carga */
+  transition: opacity 0.8s ease-in-out, visibility 0.8s;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Animación de salida del loader */
+.hero-loader-overlay.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Spinner (mismo que el contacto) */
+.hero-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(243, 160, 34, 0.2);
+  border-top: 5px solid var(--naranja-marca);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
 /* =========================================
    HERO SECTION
    ========================================= */
+#inicio{
+  scroll-margin-top: 100px;
+}
+
 .hero {
   padding: 20px;
   background-color: white;
@@ -15,26 +52,46 @@
   align-items: center;
   justify-content: space-between;
   background-color: #bec0b5;
-  /* Cambiamos a relative para controlar las capas internas */
   position: relative;
   padding: 0px 10px ;
   height: 80vh;
-  background-image: url("/hero-img-2.png");
-  background-position: center;
-  background-size: cover;
 
+  overflow: hidden; 
+}
+
+.hero-img-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* Reemplaza a background-size: cover */
+  object-position: center; /* Reemplaza a background-position: center */
+  z-index: 1;    
+  transform: scale(1.05);
+  transition: transform 1.5s ease-out;         /* Lo mandamos al fondo */
+}
+
+.hero-img-bg.img-zoom-in {
+  transform: scale(1);
 }
 
 /* --- Columna Izquierda: Textos y Buscador --- */
 .hero-content {
   width: 100%;
-  /* Aumentamos un poco el ancho */
-  /* Hacemos que se meta debajo de la imagen */
   margin-right: -15%;
-  /* Importante: Le damos un nivel de apilamiento bajo */
+  /* Como la imagen tiene z-index: 1, el contenido con 10 queda perfectamente arriba */
   z-index: 10;
   position: relative;
   padding-left: 50px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out 0.3s, transform 1s ease-out 0.3s;
+}
+
+.hero-content.content-fade-up {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .hero-title {
