@@ -106,6 +106,13 @@
   line-height: 1.6;
 }
 
+@media (max-width: 900px) {
+  .services-section {
+     margin-left: 10px;
+     margin-right: 10px;
+  }
+}
+
 /* --- Responsive para celulares --- */
 @media (max-width: 768px) {
   .services-title {

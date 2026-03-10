@@ -30,8 +30,8 @@ body {
 
 
 /* Un ajustecito para celulares: menos padding en pantallas chicas */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .main-container {
-    padding: 0 20px;
+    padding: 0 0px;
   }
 }

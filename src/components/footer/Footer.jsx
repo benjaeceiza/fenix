@@ -82,7 +82,7 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="main-container footer-bottom-content">
           <p>&copy; {currentYear} Fénix Propiedades. Todos los derechos reservados.</p>
-          <p>Powered By BE</p>
+          <p>Corredores Públicos Inmobiliarios Matriculados</p>
         </div>
       </div>
     </footer>

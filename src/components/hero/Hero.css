@@ -238,52 +238,92 @@
   filter: brightness(1.1);
 }
 
-/* Media Query para celulares: que no se rompa el efecto */
+/* =========================================
+   Media Query para celulares: Diseño Facherito Edge-to-Edge
+   ========================================= */
 @media (max-width: 900px) {
   .hero {
-    flex-direction: column;
-    text-align: center;
-    margin-top: 20px;
+    /* Sacamos los marcos, sombras y redondeos para que toque los bordes */
+    padding: 0;
+    margin-top: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 
-  .hero-content{
-    padding-left: 0;
+  .hero-background {
+    /* Hacemos que ocupe más pantalla en mobile */
+    height: 90vh; 
+    min-height: 600px;
+    padding: 20px;
+    /* Agregamos un overlay oscuro solo en mobile para que el texto blanco resalte impecable */
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
   }
 
-  
-  .hero-image-container {
-    width: 100%;
-    margin-right: 0;
+  /* Mezclamos el gradiente oscuro con la foto de la casa */
+  .hero-img-bg {
     z-index: 1;
-    /* Reseteamos z-index */
+  }
+
+  /* Capa extra para el gradiente oscuro sobre la imagen */
+  .hero-background::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
+    z-index: 2;
+  }
+
+  .hero-content {
+    padding-left: 0;
+    margin-right: 0;
+    text-align: center;
+    z-index: 10;
+    
+    /* Centramos todo el contenido vertical y horizontalmente */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
   }
 
   .hero-title {
-    font-size: 3rem;
+    /* Achicamos un pelín la letra para que no se amontone */
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Sombrita extra */
   }
 
   .hero-search-box {
-    margin: 0 auto 40px;
-    /* Centrado */
+    margin: 0 auto 30px;
+    width: 100%;
+    /* Redondeamos un poco menos agresivo en celular */
+    border-radius: 25px; 
+    padding: 15px;
   }
 
-  .hero-image-container {
-    order: -1;
-    /* Ponemos la imagen arriba en celulares */
-    margin-bottom: -50px;
-    /* Superposición vertical */
+  .hero-search-input-container {
+    padding: 4px 4px 4px 15px;
   }
 
-  .hero-property-card {
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -80px;
-    width: 90%;
+  .hero-search-input-container input {
+    font-size: 0.95rem;
   }
 
   .hero-quote {
     margin: 0 auto;
-    text-align: left;
-    display: inline-block;
+    text-align: center;
+    /* Cambiamos la línea lateral por una línea superior para que quede simétrico en el medio */
+    border-left: none;
+    border-top: 2px solid var(--naranja-marca);
+    padding-left: 0;
+    padding-top: 15px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Si llegás a usar la property card flotante, la ubicamos mejor */
+  .hero-property-card {
+    display: none; /* En mobile suele estorbar en el hero, es mejor ocultarla o moverla abajo del todo */
   }
 }

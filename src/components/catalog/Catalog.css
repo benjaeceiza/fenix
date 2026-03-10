@@ -115,6 +115,11 @@
 
 /* --- Responsive --- */
 @media (max-width: 900px) {
+
+    .catalog-section{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
     .catalog-container {
         flex-direction: column;
         text-align: center;
