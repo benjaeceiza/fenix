@@ -1,0 +1,38 @@
+/* --- LOADER GLOBAL --- */
+.global-loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--fondo-crema); /* El color cremita de tu página */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Bien alto para tapar el header y todo lo demás */
+  
+  /* Animación de salida suave */
+  transition: opacity 0.8s ease-in-out, visibility 0.8s;
+  opacity: 1;
+  visibility: visible;
+}
+
+.global-loader-overlay.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Spinner Naranja */
+.global-spinner {
+  width: 60px;
+  height: 60px;
+  border: 5px solid rgba(243, 160, 34, 0.2);
+  border-top: 5px solid var(--naranja-marca);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
