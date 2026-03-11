@@ -17,7 +17,7 @@ const Catalog = () => {
             <span className="catalog-highlight">Catálogo Completo</span>
           </h2>
           <p className="catalog-description">
-            Encontrá todos nuestros loteos disponibles, desde Ayres de Larca hasta Estación Conlara, con precios actualizados y disponibilidad inmediata directamente en nuestro WhatsApp Business.
+            Encontrá todas nuestras propiedades disponibles, con precios actualizados y disponibilidad inmediata directamente en nuestro WhatsApp Business.
           </p>
           
           <div className="catalog-actions">
