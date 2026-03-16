@@ -6,7 +6,7 @@ const WspFloating = () => {
   // Poné acá el número de la inmobiliaria (con código de área, sin el +)
   // Ejemplo para Argentina: 5492657XXXXXX
   const phoneNumber = "5492657301932"; 
-  const message = "Hola Fénix Propiedades! Vi la web y me gustaría recibir información sobre los loteos.";
+  const message = "Hola Fénix Propiedades! Vi la web y me gustaría recibir información.";
   
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
